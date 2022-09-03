@@ -17,7 +17,11 @@ int chis(int x,int y,int t,int l)
     b=znam(t,l)/t;
     n=znam(t,l)/l;
     c=(x*b)+(y*n);
-    return c;
+    return c
 }'
 [Информационные системы](https://samara.mgpu.ru/~dzhadzha/dis/15/120.html)
-![Информационные системы] (
+![Информационные системы](https://github.com/TSilkina/Information-System-Tools/blob/readme-creating/ris1.jpg?raw=true)
+Классификация по архитектурк 
+1.настольные 
+2.распределённые
+
