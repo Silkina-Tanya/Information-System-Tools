@@ -20,8 +20,16 @@ int chis(int x,int y,int t,int l)
     return c
 }'
 [Информационные системы](https://samara.mgpu.ru/~dzhadzha/dis/15/120.html)
-![Информационные системы](https://github.com/TSilkina/Information-System-Tools/blob/readme-creating/ris1.jpg?raw=true)
-Классификация по архитектурк 
+! [Информационные системы] (https://github.com/TSilkina/Information-System-Tools/blob/readme-creating/ris1.jpg?raw=true)
+
+Классификация по архитектуре😊
+
 1.настольные 
+
 2.распределённые
+
+-Ненумерованный список 
+
+-нумерованный список
+
 
