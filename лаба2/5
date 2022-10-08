@@ -1,0 +1,3 @@
+while True:
+    name = (input("Введите имя пользователя: ")).split()
+    print(f'Привет, {name}!')
