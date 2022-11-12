@@ -1,0 +1,56 @@
+docker exec -it my-mysql mysql -uroot -ppass
+show databases; -просмотр существующих БД
+use mysql; -перейти в указанную БД
+show tables; -таблици в текущей БД
+desc help_category; -описание конкретной таблицы
+show create table default_roles; -как таблица была создана
+mysql> quit
+C:\Users\Tanya>cd laba4
+C:\Users\Tanya\laba4>docker exec -i my-mysql mysql -uroot -ppass <schema.sql
+C:\Users\Tanya\laba4>docker exec -i my-mysql mysql -uroot -ppass <data.sql
+C:\Users\Tanya\laba4>docker exec -it my-mysql mysql -uroot -ppass
+mysql> show databases;
+mysql> use my_db;
+mysql> show tables;
+mysql> show create table user_private_message;
+mysql> select first_name Name, last_name "Family name" from user;
+mysql> select first_name Name, last_name "Family name" from use
+r where is_active=true;
+2#mysql> select name Name from discussion_group where approve_req
+uired=true;
+3#mysql> select greatest(message_id, user_from_id, user_to_id) "ID", 
+date(read_time) "READ", date(send_time) SEND, message_text TEXT 
+from user_private_message where send_time between '2020-11-01' and '2020-11-30'
+ and message_text like'A%' and read_time  < adddate(send_time, interval +10 day);
+4#mysql> select min(joined_time),max(approved_time), count(*) from users_t
+o_discussion_groups where approved=1;
+5#mysql> select user_id, registration_time from user order by registration
+_time desc limit 20;
+6#with groups_with_approve as (select * from discussion_group where approve_required=1), new_groups as
+(select * from groups_with_approve where creation_time>'2020-01-01') select * from  new_groups;
+7# select admin_user_id ADMIN, "discussion_group" TableName from discussion_gro
+up union select user_from_id USER,"user_private_message" TableName from user_privat
+e_message;
+8# with cntsum as (select date(send_time) time ,  user_from_id, count(1) as cnt from 
+user_private_message group by date(send_time), user_from_id)
+ select count(*) user, sum(cnt) message, time from cntsum group by time having user=message;
+
+9#> show collections
+10#db.posts1.find({"topics": "as", "author":/.*example.ru.*/, "score": {$gt: 100}})
+11#db.posts1.insertMany([{"creation_date" : new ISODate(), "author" : "skbx@example.com", "topics" : ["mongodb"]}, {"creation_date" : ISODate('2021-31-12T00:00:00Z'), "author" : "skbx@example.ru"}])
+12#db.users.aggregate( [ {$match : {"visits" : {$gt : 300}}}, {$project: {karma : "$karma", first_name : {$substr : ["$first_name", 0, 1]}}}, {$group : {_id : "$first_name", sum : {$sum : "$karma"}}}])
+13#docker exec -it my-redis redis-cli
+127.0.0.1:6379> set index "index precalculated content"
+127.0.0.1:6379> exists index
+127.0.0.1:6379> ttl index
+127.0.0.1:6379> set index "index precalculated content" ex 120
+127.0.0.1:6379> persist index
+14#1/> zadd ratings 10 mysql
+> zadd ratings 20 postgresql
+> zadd ratings 30 mongodb
+> zadd ratings 40 redis
+2/127.0.0.1:6379> zadd ratings INCR 15 mysql
+3/127.0.0.1:6379> zpopmax ratings
+4/127.0.0.1:6379> zpopmax ratings
+15#127.0.0.1:6379> psubscribe events*
+> publish events42 "Hello there"
